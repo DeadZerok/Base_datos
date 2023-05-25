@@ -2,7 +2,7 @@
 
 CREATE DATABASE restaurantes;
 use restaurantes;
-
+-- c
 
 -- Creacion de tablas 
 
