@@ -101,7 +101,8 @@ JOIN factura f ON p.id_pedido = f.id_pedido;
 
 -- Funciones --
 
---Obtener información del usuario por ID:
+
+----Esta función recibe como entrada la id de usuario y devuelve el nombre asociado a dicho usuario.
 DELIMITER //
 CREATE FUNCTION getUserByID(id INT) RETURNS VARCHAR(255)
 BEGIN
@@ -110,9 +111,9 @@ BEGIN
   RETURN username;
 END //
 DELIMITER ;
---Esta funcion nos da el nombre del usuario por medio de la id
 
--- Obtener el total de pedidos por usuario:
+
+-- Esta función permite calcular el número total de pedidos realizados por cada usuario.:
 
 DELIMITER //
 CREATE FUNCTION getTotalPedidosByUser(id INT) RETURNS INT
@@ -123,7 +124,7 @@ BEGIN
 END //
 DELIMITER ;
 
--- Calcular el subtotal de una factura:
+-- Calcular el subtotal de una factura:////
 
 DELIMITER //
 CREATE FUNCTION calculateSubtotal(facturaID INT) RETURNS DECIMAL(10,2)
@@ -134,7 +135,7 @@ BEGIN
 END //
 DELIMITER ;
 
--- Obtener el tipo de producto por su ID:
+-- Esta función proporciona el tipo de producto correspondiente a una ID específica.
 
 DELIMITER //
 CREATE FUNCTION getProductTypeByID(id INT) RETURNS VARCHAR(255)
@@ -146,7 +147,7 @@ END //
 DELIMITER ;
 
 
--- Actualizar la cantidad disponible de un producto:
+-- Esta función permite actualizar la cantidad disponible de un producto existente en el inventario:
 
 DELIMITER //
 CREATE PROCEDURE updateProductQuantity(productID INT, newQuantity INT)
@@ -155,7 +156,7 @@ BEGIN
 END //
 DELIMITER ;
 
--- Calcular el total de ventas en un rango de fechas:
+-- Calcular el total de ventas en un rango de fechas://///
 
 DELIMITER //
 CREATE FUNCTION calculateTotalSales(startDate DATE, endDate DATE) RETURNS DECIMAL(10,2)
@@ -166,7 +167,7 @@ BEGIN
 END //
 DELIMITER ;
 
--- Obtener el menú personalizado por ID de pedido:
+-- Esta función permite obtener el menú asociado a un pedido específico mediante su ID de pedido.:
 
 DELIMITER //
 CREATE PROCEDURE getMenuByPedidoID(pedidoID INT)
@@ -178,7 +179,7 @@ BEGIN
 END //
 DELIMITER ;
 
--- Calcular el total de propina de todas las facturas:
+-- Esta función realiza el cálculo del total de propina acumulada de todas las facturas registradas.:
 
 DELIMITER //
 CREATE FUNCTION calculateTotalTips() RETURNS DECIMAL(10,2)
@@ -189,7 +190,7 @@ BEGIN
 END //
 DELIMITER ;
 
--- Eliminar un pedido y su factura relacionada:
+-- Esta función permite eliminar un pedido específico junto con su factura correspondiente, eliminando así todos los registros relacionados:
 
 DELIMITER //
 CREATE PROCEDURE deletePedido(pedidoID INT)
@@ -199,7 +200,7 @@ BEGIN
 END //
 DELIMITER ;
 
--- Obtener el método de pago de una factura:
+-- Esta función permite obtener el método de pago utilizado en una factura específica.
 
 DELIMITER //
 CREATE FUNCTION getPaymentMethod(facturaID INT) RETURNS VARCHAR(255)
